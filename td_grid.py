@@ -537,7 +537,7 @@ class EnvironmentInterface(object):
 
         return action_idx
 
-    def step(self, t, x):
+    def step(self, t, x,i=0):
         '''Prepare Q value info for computing error signal'''
         # if t is multiple of action step size, do step 
         if self.terminal:
@@ -577,11 +577,14 @@ class EnvironmentInterface(object):
 
             #temporal difference learning
             f_output = np.zeros(self.n_actions)
+            #q learning bellman equation
+            #immediate reward + discountfactor*future reward
             f_output[self.current_action_index] = 0.9 * qmax + self.agent.reward
             # print("c output\n",c_output)
             # print("f_output\n",f_output)
             self.output = np.concatenate(
                 (c_output, f_output, qvalues))
-            #print(self.output)
+
+            print(i, self.output)
         return self.output
     
