@@ -574,6 +574,7 @@ class EnvironmentInterface(object):
             
             c_output = np.zeros(self.n_actions)
             c_output[self.current_action_index] = qvalues[self.current_action_index]
+
             #temporal difference learning
             f_output = np.zeros(self.n_actions)
             f_output[self.current_action_index] = 0.9 * qmax + self.agent.reward
