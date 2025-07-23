@@ -585,6 +585,6 @@ class EnvironmentInterface(object):
             self.output = np.concatenate(
                 (c_output, f_output, qvalues))
 
-            print(i, self.output)
+            # print(i, self.output)
         return self.output
     
