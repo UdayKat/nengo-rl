@@ -549,7 +549,7 @@ class EnvironmentInterface(object):
         
         if int(t * 1000) == 1:
             print('STARTING')
-
+        #at time t if divisible by 10 and reward is positive, then reset to a random position and update the current q value, future q value, all q values
         if int(t * 1000) % self.stepsize == 0:
             if self.agent.reward > 0:
                 self.output = np.zeros_like(self.output)
